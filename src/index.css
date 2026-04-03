@@ -1,6 +1,25 @@
 @import "tailwindcss";
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
 
 @source "../index.html";
 @source "./**/*.{ts,tsx}";
+
+:root {
+  --navy:       #060b18;
+  --navy2:      #0d1b35;
+  --navy3:      #1a2f5e;
+  --gold:       #c9a227;
+  --gold-light: #f0c842;
+  --gold-dim:   #7a5f10;
+  --white:      #ffffff;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  margin: 0;
+}

@@ -1,0 +1,276 @@
+.tbCarrinho {
+  background: var(--navy);
+  min-height: 100vh;
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--white);
+  padding: 3.5rem 1.5rem 5rem;
+  position: relative;
+}
+
+.tbCarrinho::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 162, 39, 0.025) 0.0625rem, transparent 0.0625rem),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.025) 0.0625rem, transparent 0.0625rem);
+  background-size: 2.5rem 2.5rem;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.carrinhoInner {
+  max-width: 36.25rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.carrinhoTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: var(--white);
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 2rem rgba(255, 255, 255, 0.1);
+}
+
+.carrinhoList {
+  border: 0.0625rem solid rgba(201, 162, 39, 0.2);
+  border-radius: 0.85rem 0.85rem 0 0;
+  background: rgba(13, 27, 53, 0.6);
+  backdrop-filter: blur(0.25rem);
+  overflow: hidden;
+  position: relative;
+}
+
+
+.carrinhoList::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.0625rem;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.carrinhoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.125rem 1.5rem;
+  border-bottom: 0.0625rem solid rgba(201, 162, 39, 0.08);
+  transition: background 0.2s;
+  animation: item-in 0.4s ease-out backwards;
+  gap: 1rem;
+}
+
+.carrinhoItem:last-child {
+  border-bottom: 0rem;
+}
+
+.carrinhoItem:hover {
+  background: rgba(201, 162, 39, 0.03);
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateX(-0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.itemNome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+}
+
+.itemDetalhe {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.itemAcoes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.itemPreco {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--gold-light);
+  text-shadow: 0 0 0.75rem rgba(240, 200, 66, 0.3);
+}
+
+.btnRemover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.875rem;
+  height: 1.875rem;
+  color: rgba(255, 80, 80, 0.5);
+  background: rgba(255, 80, 80, 0.06);
+  border: 0.0625rem solid rgba(255, 80, 80, 0.15);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.btnRemover:hover {
+  color: #ff4444;
+  background: rgba(255, 80, 80, 0.12);
+  border-color: rgba(255, 80, 80, 0.4);
+}
+
+.carrinhoTotalBar {
+  border: 0.0625rem solid rgba(201, 162, 39, 0.25);
+  border-top: none;
+  border-radius: 0 0 0.75rem 0.75rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(201, 162, 39, 0.05);
+}
+
+.totalLabel {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.totalValue {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  text-shadow: 0 0 1.25rem rgba(240, 200, 66, 0.4);
+}
+
+.btnFinalizar {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+  color: #000;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 1.25rem rgba(201, 162, 39, 0.25);
+}
+
+.btnFinalizar:hover {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  box-shadow: 0 0 1.875rem rgba(240, 200, 66, 0.45);
+  transform: translateY(-0.125rem);
+}
+
+/* ── Empty state ─────────────────────────────── */
+.carrinhoEmpty {
+  background: var(--navy);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-family: 'Rajdhani', sans-serif;
+  position: relative;
+}
+
+.carrinhoEmpty::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 162, 39, 0.025) 0.0625rem, transparent 0.0625rem),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.025) 0.0625rem, transparent 0.0625rem);
+  background-size: 2.5rem 2.5rem;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.emptyIconWrap {
+  position: relative;
+  z-index: 1;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 0.0625rem solid rgba(201, 162, 39, 0.2);
+  background: rgba(201, 162, 39, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(201, 162, 39, 0.4);
+}
+
+.emptyTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.emptyDesc {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.25);
+  position: relative;
+  z-index: 1;
+}
+
+.btnVerLoja {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  background: none;
+  border: 0.0625rem solid rgba(201, 162, 39, 0.3);
+  border-radius: 0.375rem;
+  padding: 0.625rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.btnVerLoja:hover {
+  background: rgba(201, 162, 39, 0.08);
+  border-color: var(--gold);
+  transform: translateY(-0.125rem);
+}

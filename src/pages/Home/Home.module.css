@@ -1,0 +1,299 @@
+.tbHome {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--navy);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.circuitBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 162, 39, 0.04) 0.0625rem, transparent 0.0625rem),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.04) 0.0625rem, transparent 0.0625rem);
+  background-size: 2.5rem 2.5rem;
+  z-index: 0;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 0.125rem,
+    rgba(0, 0, 0, 0.12) 0.125rem,
+    rgba(0, 0, 0, 0.12) 0.25rem
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.circuitNode {
+  position: absolute;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0.5rem var(--gold-light);
+  animation: pulse-node 3s ease-in-out infinite;
+}
+
+@keyframes pulse-node {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.8);
+  }
+}
+
+.logoGlowBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 31.25rem;
+  height: 31.25rem;
+  background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translate(-50%, -60%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -60%) scale(1.15);
+  }
+}
+
+.cornerTl,
+.cornerBr {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 2;
+  border-color: var(--gold-dim);
+  border-style: solid;
+  opacity: 0.7;
+}
+.cornerTl {
+  top: 1.25rem;
+  left: 1.25rem;
+  border-width: 0.125rem 0 0 0.125rem;
+}
+.cornerBr {
+  bottom: 1.25rem;
+  right: 1.25rem;
+  border-width: 0 0.125rem 0.125rem 0;
+}
+
+.binaryParticle {
+  position: absolute;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.6875rem;
+  color: rgba(201, 162, 39, 0.15);
+  pointer-events: none;
+  z-index: 0;
+  animation: fall linear infinite;
+  user-select: none;
+  white-space: pre;
+  line-height: 1.6;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-2.5rem);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+.badgeCc {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  border: 0.0625rem solid var(--gold-dim);
+  padding: 0.25rem 0.75rem;
+  clip-path: polygon(0.5rem 0%, 100% 0%, calc(100% - 0.5rem) 100%, 0% 100%);
+  background: rgba(201, 162, 39, 0.08);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: appear 0.8s ease-out 0.2s forwards;
+}
+
+.tbLogo {
+  width: 16.5rem;
+  height: 16.5rem;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation:
+    logo-appear 1s ease-out forwards,
+    logo-float 5s ease-in-out 1s infinite;
+  filter: drop-shadow(0 0 1.125rem rgba(201, 162, 39, 0.6))
+    drop-shadow(0 0 2.5rem rgba(201, 162, 39, 0.3));
+}
+
+@keyframes logo-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(1.875rem);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes logo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.625rem);
+  }
+}
+
+.glitchTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.3rem, 6vw, 4rem);
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: appear 0.8s ease-out 0.4s forwards;
+  text-shadow: 0 0 1.875rem rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.goldText {
+  color: var(--gold-light);
+  text-shadow: 0 0 1.25rem rgba(240, 200, 66, 0.5);
+}
+
+.tbSubtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: appear 0.8s ease-out 0.7s forwards;
+}
+
+.goldDivider {
+  width: 7.5rem;
+  height: 0.125rem;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: appear 0.8s ease-out 0.9s forwards;
+}
+
+.tbTagline {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  margin-top: 0.5rem;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: appear 0.8s ease-out 1s forwards;
+  max-width: 30rem;
+  line-height: 1.5;
+}
+
+.btnCta {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.875rem 2.5rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+  color: #000;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  clip-path: polygon(0.75rem 0%, 100% 0%, calc(100% - 0.75rem) 100%, 0% 100%);
+  transition: all 0.2s ease;
+  opacity: 0;
+  animation: appear 0.8s ease-out 1.2s forwards;
+  box-shadow: 0 0 1.25rem rgba(201, 162, 39, 0.4);
+}
+
+.statsBar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  opacity: 0;
+  animation: appear 0.8s ease-out 1.5s forwards;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNumber {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--gold-light);
+  display: block;
+  text-shadow: 0 0 0.9375rem rgba(240, 200, 66, 0.4);
+}
+
+.statLabel {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.statDivider {
+  width: 0.0625rem;
+  height: 2.25rem;
+  background: linear-gradient(180deg, transparent, var(--gold-dim), transparent);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

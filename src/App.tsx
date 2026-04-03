@@ -1,28 +1,49 @@
 import { useState } from 'react'
-import Home from '@/pages/Home'
-import Loja from '@/pages/Loja'
-import Carrinho from '@/pages/Carrinho'
-import Formulario from '@/pages/Formulario'
+import Home from '@/pages/Home/Home'
+import Loja from '@/pages/Loja/Loja'
+import Carrinho from '@/pages/Carrinho/Carrinho'
+import Formulario from '@/pages/Form/Formulario'
 import BotaoCarrinho from '@/components/loja/BotaoCarrinho'
+import styles from './App.module.css'
 
 export type Pagina = 'home' | 'loja' | 'carrinho' | 'formulario'
 
 export default function App() {
   const [pagina, setPagina] = useState<Pagina>('home')
   const nav = (p: Pagina) => setPagina(p)
+
   return (
-    <div className="min-h-screen bg-white">
-      <nav className="bg-gray-900 text-white px-6 py-3 flex items-center justify-between">
-        <button onClick={() => nav('home')} className="font-bold text-lg">🏆 Atlética</button>
-        <div className="flex items-center gap-6 text-sm">
-          <button onClick={() => nav('home')} className="hover:text-yellow-400 transition-colors">Home</button>
-          <button onClick={() => nav('loja')} className="hover:text-yellow-400 transition-colors">Loja</button>
-          <BotaoCarrinho onNavigate={() => nav('carrinho')} />
+    <div className={styles.appRoot}>
+      <nav className={styles.tbNav}>
+        <div className={styles.tbNavInner}>
+          <button onClick={() => nav('home')} className={styles.tbNavBrand}>
+            <img src="/terabyte-logo.png" alt="Terabyte" className={styles.navLogo} />
+            <span className={styles.navBrandText}>
+              Atlética <span className={styles.spanGold}>Terabyte</span>
+            </span>
+          </button>
+
+          <div className={styles.tbNavLinks}>
+            <button
+              onClick={() => nav('home')}
+              className={`${styles.navLink} ${pagina === 'home' ? styles.active : ''}`}
+            >
+              Home
+            </button>
+            <button
+              onClick={() => nav('loja')}
+              className={`${styles.navLink} ${pagina === 'loja' ? styles.active : ''}`}
+            >
+              Loja
+            </button>
+            <BotaoCarrinho onNavigate={() => nav('carrinho')} />
+          </div>
         </div>
       </nav>
-      {pagina === 'home'       && <Home       onNavigate={nav} />}
-      {pagina === 'loja'       && <Loja       onNavigate={nav} />}
-      {pagina === 'carrinho'   && <Carrinho   onNavigate={nav} />}
+
+      {pagina === 'home' && <Home onNavigate={nav} />}
+      {pagina === 'loja' && <Loja onNavigate={nav} />}
+      {pagina === 'carrinho' && <Carrinho onNavigate={nav} />}
       {pagina === 'formulario' && <Formulario onNavigate={nav} />}
     </div>
   )

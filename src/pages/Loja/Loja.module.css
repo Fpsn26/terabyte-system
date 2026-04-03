@@ -1,0 +1,93 @@
+.tbLoja {
+  background: var(--navy);
+  min-height: 100vh;
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--white);
+}
+
+.lojaHeader {
+  position: relative;
+  padding: 3.5rem 1.5rem 2.25rem;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.lojaHeader::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18.75rem;
+  height: 0.0625rem;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.lojaHeaderBg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(201, 162, 39, 0.07) 0%, transparent 60%),
+    linear-gradient(rgba(201, 162, 39, 0.025) 0.0625rem, transparent 0.0625rem),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.025) 0.0625rem, transparent 0.0625rem);
+  background-size: 100% 100%, 2.5rem 2.5rem, 2.5rem 2.5rem;
+  pointer-events: none;
+}
+
+.lojaEyebrow {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+.lojaTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--white);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 2.5rem rgba(201, 162, 39, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.spanTerabyte {
+  color: var(--gold-light);
+}
+
+.lojaDesc {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+}
+
+.lojaCount {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(201, 162, 39, 0.5);
+  text-align: center;
+  margin-bottom: 1.75rem;
+  text-transform: uppercase;
+}
+
+.lojaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
+  gap: 1.75rem;
+  padding: 0 1.5rem 5rem;
+  max-width: 75rem;
+  margin: 0 auto;
+}
