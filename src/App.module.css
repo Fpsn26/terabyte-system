@@ -1,0 +1,8 @@
+.nav {
+    display: flex;
+    gap: 1.25rem;
+    height: 3rem;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 0 2rem;
+}
