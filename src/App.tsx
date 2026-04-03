@@ -17,7 +17,7 @@ export default function App() {
       <nav className={styles.tbNav}>
         <div className={styles.tbNavInner}>
           <button onClick={() => nav('home')} className={styles.tbNavBrand}>
-            <img src="/terabyte-logo.png" alt="Terabyte" className={styles.navLogo} />
+            <img src="/images/logo_bombado.png" alt="Terabyte" className={styles.navLogo} />
             <span className={styles.navBrandText}>
               Atlética <span className={styles.spanGold}>Terabyte</span>
             </span>

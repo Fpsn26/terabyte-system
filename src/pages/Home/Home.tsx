@@ -20,13 +20,12 @@ const BINARY_COLUMNS = Array.from({ length: 14 }, (_, i) => ({
 
 export default function Home({ onNavigate }: { readonly onNavigate: (p: Pagina) => void }) {
   return (
-    <main
-      className={`${styles.tbHome} flex flex-col items-center justify-start min-h-screen text-center px-6 py-16 gap-4`}
-    >
+    <main className={styles.tbHome}>
       <div className={styles.cornerTl} />
       <div className={styles.cornerBr} />
       <div className={styles.circuitBg} />
       <div className={styles.scanlines} />
+      <div className={styles.logoGlowBg} />
 
       {BINARY_COLUMNS.map((col) => (
         <span
@@ -51,13 +50,11 @@ export default function Home({ onNavigate }: { readonly onNavigate: (p: Pagina) 
         />
       ))}
 
-      <div className={styles.logoGlowBg} />
-
       <div className={styles.badgeCc}>Ciências da Computação · IF Goiano - Morrinhos</div>
 
-      <img src="/terabyte-logo.png" alt="Atlética Terabyte" className={styles.tbLogo} />
+      <img src="/images/logo_bombado.png" alt="Atlética Terabyte" className={styles.tbLogo} />
 
-      <h1 className={styles.glitchTitle} data-text="Estamos de Volta!">
+      <h1 className={styles.glitchTitle}>
         Estamos de <span className={styles.goldText}>Volta!</span>
       </h1>
 
@@ -66,7 +63,8 @@ export default function Home({ onNavigate }: { readonly onNavigate: (p: Pagina) 
       <div className={styles.goldDivider} />
 
       <p className={styles.tbTagline}>
-        Vista a camisa, represente o curso e apoie o esporte universitário.
+        O sistema foi reiniciado. A tradição da Computação está de volta para honrar o legado da
+        nossa atlética.
       </p>
 
       <button className={styles.btnCta} onClick={() => onNavigate('loja')}>

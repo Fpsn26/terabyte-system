@@ -5,6 +5,13 @@
   position: relative;
   overflow: hidden;
   color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  gap: 1rem;
 }
 
 .circuitBg {
@@ -42,15 +49,8 @@
 }
 
 @keyframes pulse-node {
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.8);
-  }
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.8); }
 }
 
 .logoGlowBg {
@@ -67,19 +67,11 @@
 }
 
 @keyframes breathe {
-  0%,
-  100% {
-    opacity: 0.6;
-    transform: translate(-50%, -60%) scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translate(-50%, -60%) scale(1.15);
-  }
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -60%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -60%) scale(1.15); }
 }
 
-.cornerTl,
-.cornerBr {
+.cornerTl, .cornerBr {
   position: absolute;
   width: 2.5rem;
   height: 2.5rem;
@@ -88,11 +80,13 @@
   border-style: solid;
   opacity: 0.7;
 }
+
 .cornerTl {
   top: 1.25rem;
   left: 1.25rem;
   border-width: 0.125rem 0 0 0.125rem;
 }
+
 .cornerBr {
   bottom: 1.25rem;
   right: 1.25rem;
@@ -113,14 +107,8 @@
 }
 
 @keyframes fall {
-  from {
-    transform: translateY(-2.5rem);
-    opacity: 0.6;
-  }
-  to {
-    transform: translateY(110vh);
-    opacity: 0;
-  }
+  from { transform: translateY(-2.5rem); opacity: 0.6; }
+  to { transform: translateY(110vh); opacity: 0; }
 }
 
 .badgeCc {
@@ -154,24 +142,13 @@
 }
 
 @keyframes logo-appear {
-  from {
-    opacity: 0;
-    transform: scale(0.7) translateY(1.875rem);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  from { opacity: 0; transform: scale(0.7) translateY(1.875rem); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 @keyframes logo-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-0.625rem);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.625rem); }
 }
 
 .glitchTitle {
@@ -185,6 +162,7 @@
   animation: appear 0.8s ease-out 0.4s forwards;
   text-shadow: 0 0 1.875rem rgba(255, 255, 255, 0.3);
   letter-spacing: 0.05em;
+  margin: 0;
 }
 
 .goldText {
@@ -203,6 +181,7 @@
   z-index: 2;
   opacity: 0;
   animation: appear 0.8s ease-out 0.7s forwards;
+  margin: 0;
 }
 
 .goldDivider {
@@ -249,6 +228,11 @@
   box-shadow: 0 0 1.25rem rgba(201, 162, 39, 0.4);
 }
 
+.btnCta:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
 .statsBar {
   position: relative;
   z-index: 2;
@@ -257,10 +241,7 @@
   align-items: center;
   opacity: 0;
   animation: appear 0.8s ease-out 1.5s forwards;
-}
-
-.statItem {
-  text-align: center;
+  margin-top: 1rem;
 }
 
 .statNumber {
@@ -281,19 +262,7 @@
   display: block;
 }
 
-.statDivider {
-  width: 0.0625rem;
-  height: 2.25rem;
-  background: linear-gradient(180deg, transparent, var(--gold-dim), transparent);
-}
-
 @keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(1.25rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(1.25rem); }
+  to { opacity: 1; transform: translateY(0); }
 }
