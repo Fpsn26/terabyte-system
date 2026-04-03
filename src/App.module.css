@@ -102,4 +102,5 @@
 .navLink.active::after,
 .navLink:hover::after {
   transform: scaleX(1);
+
 }
