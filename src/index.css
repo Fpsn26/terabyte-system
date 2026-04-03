@@ -18,3 +18,6 @@ button {
   background: none;
   font-family: inherit;
 }
+
+@source "../index.html";
+@source "./**/*.{ts,tsx}";
