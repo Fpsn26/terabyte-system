@@ -1,11 +1,39 @@
 // RESPONSÁVEL: Felipe | PRIORIDADE: Alta
-import type { Pagina } from '@/App'
-export default function Home({ onNavigate }: { onNavigate: (p: Pagina) => void }) {
+import styles from './Home.module.css'
+
+export default function Home() {
+  const irParaLoja = () => {
+    window.location.href = '/loja'
+  }
+
   return (
-    <main className="flex flex-col items-center justify-center min-h-[80vh] text-center px-4">
-      <h1 className="text-5xl font-extrabold mb-4">🏆 Atlética</h1>
-      <p className="text-gray-500 text-lg mb-8">Vista a camisa, apoie o esporte universitário.</p>
-      <button onClick={() => onNavigate('loja')} className="bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors">Ver Loja</button>
+    <main className={styles.main}>
+      <div className={styles.logo}>
+        <img className={styles.image} src="./images/logo_bombado.png" alt="Logo da Terabyte" />
+      </div>
+      <div className={styles.colunaDireita}>
+        <div className={styles.conteudo}>
+          <h1 className={styles.titulo}>Quem somos?</h1>
+          <p className={styles.texto}>
+            A Terabyte é a atlética oficial do curso de Ciência da Computação do IF Goiano - Campus
+            Morrinhos. Fundada em 2018, a Atlética tem como objetivo promover a integração entre os
+            estudantes do curso, além de incentivar a prática esportiva e a participação em eventos
+            acadêmicos e sociais.
+          </p>
+        </div>
+        <div className={styles.produtos}>
+          <p className={styles.titulo}>Produtos</p>
+          <ul className={styles.lista}>
+            <li>Camisa</li>
+            <li>Caneca</li>
+            <li>Adesivo</li>
+          </ul>
+
+          <button className={styles.botao} onClick={irParaLoja}>
+            Acessar Loja!
+          </button>
+        </div>
+      </div>
     </main>
   )
 }
