@@ -195,7 +195,6 @@
   transform: translateY(-0.125rem);
 }
 
-/* ── Empty state ─────────────────────────────── */
 .carrinhoEmpty {
   background: var(--navy);
   min-height: 100vh;

@@ -89,6 +89,25 @@
               0 0 1.25rem rgba(201, 162, 39, 0.05);
 }
 
+.fieldInputError {
+  border-color: rgba(255, 80, 80, 0.5);
+}
+
+.fieldInputError:focus {
+  border-color: rgba(255, 80, 80, 0.8);
+  box-shadow: 0 0 0 0.0625rem rgba(255, 80, 80, 0.15),
+              0 0 1.25rem rgba(255, 80, 80, 0.05);
+}
+
+.fieldError {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.6px;
+  color: rgba(255, 100, 100, 0.9);
+  display: flex;
+  align-items: center;
+}
+
 .resumoBox {
   border: 0.0625rem solid rgba(201, 162, 39, 0.2);
   border-radius: 0.75rem;
@@ -199,7 +218,6 @@
   cursor: not-allowed;
 }
 
-/* Empty state */
 .formEmpty {
   background: var(--navy);
   min-height: 100vh;
